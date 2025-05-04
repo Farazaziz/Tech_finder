@@ -1,28 +1,27 @@
-// Replace this with a real fetch call to Google Sheets if needed.
 const companies = [
   {
     name: "Systems Limited",
-    description: "Leading IT and BPO services provider in Pakistan.",
+    description: "A pioneer in Pakistan’s tech sector, providing IT and BPO services globally.",
     website: "https://www.systemsltd.com"
   },
   {
     name: "NetSol Technologies",
-    description: "Enterprise IT solutions provider with a focus on finance and leasing.",
+    description: "Renowned for enterprise-grade financial tech solutions worldwide.",
     website: "https://www.netsoltech.com"
   },
   {
     name: "10Pearls",
-    description: "Global tech company focused on digital transformation and AI.",
+    description: "Human-centric innovation and digital transformation partner.",
     website: "https://10pearls.com"
   },
   {
     name: "Afiniti",
-    description: "Uses AI to pair customers and agents in call centers.",
+    description: "AI-driven call routing platform that pairs agents and customers.",
     website: "https://www.afiniti.com"
   }
 ];
 
-const listContainer = document.getElementById("companies");
+const grid = document.getElementById("companies");
 const popup = document.getElementById("popup");
 const closePopup = document.getElementById("closePopup");
 const companyName = document.getElementById("companyName");
@@ -30,10 +29,11 @@ const companyDescription = document.getElementById("companyDescription");
 const visitSiteBtn = document.getElementById("visitSiteBtn");
 
 companies.forEach((company, index) => {
-  const li = document.createElement("li");
-  li.textContent = company.name;
-  li.addEventListener("click", () => showCompanyDetails(index));
-  listContainer.appendChild(li);
+  const div = document.createElement("div");
+  div.className = "company-card";
+  div.innerHTML = `<h3>${company.name}</h3><p>${company.description.slice(0, 60)}...</p>`;
+  div.addEventListener("click", () => showCompanyDetails(index));
+  grid.appendChild(div);
 });
 
 function showCompanyDetails(index) {
@@ -41,8 +41,7 @@ function showCompanyDetails(index) {
   companyName.textContent = company.name;
   companyDescription.textContent = company.description;
   visitSiteBtn.onclick = () => {
-    const confirmVisit = confirm("Do you want to visit the official website?");
-    if (confirmVisit) {
+    if (confirm("Do you want to visit the official website?")) {
       window.open(company.website, "_blank");
     }
   };
@@ -53,8 +52,6 @@ closePopup.onclick = () => {
   popup.style.display = "none";
 };
 
-window.onclick = function (event) {
-  if (event.target == popup) {
-    popup.style.display = "none";
-  }
+window.onclick = function (e) {
+  if (e.target === popup) popup.style.display = "none";
 };
