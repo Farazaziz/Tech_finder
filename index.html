@@ -3,40 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TechFinder - Tech Companies in Pakistan</title>
+  <title>TechFinder - Discover Tech Companies in Pakistan</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <h1>TechFinder</h1>
-    <p>Explore Top Tech Companies in Pakistan</p>
+  <header class="dark-header">
+    <div class="container">
+      <h1>TechFinder</h1>
+      <p>Explore leading tech companies shaping the future of Pakistan</p>
+    </div>
   </header>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Tech News</a>
-    <a href="#">Events</a>
-    <a href="#">Resources</a>
+  <nav class="navbar">
+    <div class="container">
+      <a href="#">Home</a>
+      <a href="#">Companies</a>
+      <a href="#">News</a>
+      <a href="#">Resources</a>
+      <a href="#">Contact</a>
+    </div>
   </nav>
 
-  <main>
-    <section class="company-list" id="companyList">
-      <h2>Featured Tech Companies</h2>
-      <ul id="companies"></ul>
+  <main class="container">
+    <section class="company-section">
+      <h2>Top Tech Companies</h2>
+      <div id="companies" class="company-grid"></div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 TechFinder. All rights reserved.</p>
+  <footer class="dark-footer">
+    <div class="container">
+      <p>&copy; 2025 TechFinder. Crafted with ❤️ for the tech community.</p>
+    </div>
   </footer>
 
-  <!-- Popup Modal -->
+  <!-- Modal -->
   <div id="popup" class="modal">
     <div class="modal-content">
       <span class="close" id="closePopup">&times;</span>
       <h2 id="companyName"></h2>
       <p id="companyDescription"></p>
-      <button id="visitSiteBtn">Visit Official Website</button>
+      <button id="visitSiteBtn">Visit Website</button>
     </div>
   </div>
 
